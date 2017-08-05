@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805185823) do
+ActiveRecord::Schema.define(version: 20170805195738) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "address"
@@ -45,17 +45,6 @@ ActiveRecord::Schema.define(version: 20170805185823) do
 
   create_table "headers", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "homes", force: :cascade do |t|
-    t.string   "banner1_file_name"
-    t.string   "banner1_content_type"
-    t.integer  "banner1_file_size"
-    t.datetime "banner1_updated_at"
-    t.string   "banner2_file_name"
-    t.string   "banner2_content_type"
-    t.integer  "banner2_file_size"
-    t.datetime "banner2_updated_at"
   end
 
   create_table "kitchens", force: :cascade do |t|

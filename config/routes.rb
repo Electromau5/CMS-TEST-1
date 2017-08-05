@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'pages#landing'
-  get '/cms' => 'homes#index'
+  get '/cms' => 'pages#cms'
   get '/groupscms' => 'groups#index1'
   get '/menucms' => 'menus#menucms'
   get '/socialcms' => 'socials#socialcms'
@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   # resources :headers
   resources :groups
   resources :contacts
-  resources :homes
   resources :menus
   resources :socials
   resources :metainfos
