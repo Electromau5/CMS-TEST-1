@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805195738) do
+ActiveRecord::Schema.define(version: 20170805202238) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "address"
-    t.string   "day"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "day2"
     t.string   "time"
     t.string   "time2"
-    t.string   "phone"
+    t.string   "day"
+    t.string   "day2"
+    t.integer  "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "customers", force: :cascade do |t|
