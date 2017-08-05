@@ -1,0 +1,97 @@
+
+.banner-whats-new
+{
+	background-color: #215A9E;
+	text-align: center;
+	color: #fff;
+	font-family: serif;
+	padding: 25px;
+}
+
+.banner-whats-new > h1
+{
+	font-size: 50px;
+}
+
+.banner-location-contact
+{
+	width: 100%;
+	background-color: #215A9E;
+	text-align: center;
+	color: #fff;
+	font-family: serif;
+	padding: 25px;
+}
+
+.banner-location-contact > h1
+{
+	font-size: 50px;
+}
+
+.contacts-landing-address
+{
+	font-family: 'Goldana-Base', sans-serif;
+	font-size: 20px;
+	color: #fff;
+}
+
+.contacts-landing-phone
+{
+	font-family: 'Goldana-Base', sans-serif;
+	font-size: 30px;
+	color: #fff;
+}
+
+.contacts-landing-day-time
+{
+	font-family: 'Goldana-Base', sans-serif;
+	font-size: 30px;
+	color: #fff;
+}
+
+.group-landing-title
+{
+	font-family: 'Goldana-Base', sans-serif;
+	color:#EF4135;
+	font-size: 45px;
+	text-align: center;
+	margin-top: 100px;
+}
+
+.group-landing-description
+{
+	text-align: center;
+	color:#EF4135;
+}
+
+.group-landing-image
+{
+
+}
+
+.master-container
+{
+	height: 400px;
+	background-image: url(banner-image-1.png);
+	background-position: 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+  	padding-top: 48px;
+  	padding-bottom: 48px;
+  	z-index: 1;
+
+}
+
+
+.master-container-2
+{
+	height: 400px;
+	background-image: url(banner-image-2.png);
+	background-position: 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+  	padding-top: 48px;
+  	padding-bottom: 48px;
+  	z-index: 1;
+
+}

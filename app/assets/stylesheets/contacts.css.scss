@@ -1,0 +1,52 @@
+.contact-cms-header
+{
+	text-align: center;
+}
+.contact-cms-sub-header
+{
+	text-align:center;
+	width: 100%;
+	color: #EF4135!important;
+}
+
+.contact-cms
+{
+	text-align:center;
+	width: 100%;
+}
+
+
+.contact-cms-edit
+{
+	color: #000;
+	display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid #000;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.contact-cms-edit:hover
+{
+	background-color: #000;
+	color: #fff;
+	text-decoration: none;
+}
+
+.contact-cms-edit-delete
+{
+	text-align:center;
+}

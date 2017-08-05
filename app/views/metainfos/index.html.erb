@@ -1,0 +1,26 @@
+<%= render 'layouts/header' %>
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+			<%= link_to 'Add', new_metainfo_path, class: 'add-new-text btn btn-primary' %>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+			<%= link_to 'View All', metainfos_path, class: 'view-all-text btn btn-primary' %>
+ 		</div>
+	</div><br>
+	<h2 style="text-align:center">META INFORMATION</h2>
+	<div class="container">	
+		<div class="row">
+		<% Metainfo.all.each do |metainfo| %>
+			<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+				<h2>META TITLE</h2>
+				<div class="meta-cms-title"><%= metainfo.title %></div><br>
+				<h2>META DESCRIPTION</h2>
+				<div class="meta-cms-description"><%= metainfo.description %></div><br>
+				<h2>META KEYWORDS</h2>
+				<div class="meta-cms-keyword"><%= metainfo.keyword %></div><br>
+				<%= link_to 'EDIT', edit_metainfo_path(metainfo), class: 'meta-cms-edit' %>
+				<%= link_to 'DELETE', metainfo, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'meta-cms-edit' %>
+			</div>
+		<% end %>
+		</div>
+	</div>

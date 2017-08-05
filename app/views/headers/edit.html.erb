@@ -1,0 +1,14 @@
+<div class = "container-fluid">
+	<h1 style="text-align:center">EDIT HEADER</h1>
+			<div class = "row">
+				<div class = "col-md-6 col-md-offset-3">
+					<%= form_for @header do |h| %>
+						<%= h.label :name %><br />
+						<%= h.text_field :name, class: "form-control" %><br />
+						
+						<%= h.submit 'Update', class: 'btn btn-primary'  %>
+						<%= link_to 'Cancel', root_path %>
+					<% end %>
+				</div>
+			</div>
+</div>

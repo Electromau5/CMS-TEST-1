@@ -1,0 +1,31 @@
+<%= render 'layouts/header' %>
+<div class="row">
+	<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+		<%= link_to 'Back', socialcms_path, class: 'add-new-text btn btn-primary' %>
+	</div>
+	<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+		<%= link_to 'View All', socialcms_path, class: 'view-all-text btn btn-primary' %>
+ 	</div>
+</div><br>
+<div class="container">
+  <h1 style="text-align:center">Edit Social Media Link</h1>
+    <%= form_for(@social, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+		<div class = "row">
+  			<div class = "col-md-6" style="margin-left:25%">
+  				<div class="form-social">
+    				<%= f.label :name, 'Name' %>
+    				<%= f.text_field :name, class: 'form-control' %>
+  				</div>
+  			    <div class="form-social">
+    				<%= f.label :link, 'Link' %>
+    				<%= f.text_area :link, class: 'form-control' %>
+  				</div>
+  			    <div class="form-social">
+    				<%= f.label :image, 'Image' %>
+    				<%= f.file_field :image, class: 'form-control' %>
+  				</div>
+			</div>
+		</div>
+		<div style="margin-left: 25%"><%= f.submit "Edit", class: 'btn btn-primary' %></div>
+	<% end %>
+</div>

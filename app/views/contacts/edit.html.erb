@@ -1,0 +1,43 @@
+<%= render 'layouts/header' %>
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+    <%= link_to 'Back', contacts_path, class: 'add-new-text btn btn-primary' %>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+    <%= link_to 'View All', contacts_path, class: 'view-all-text btn btn-primary' %>
+  </div>
+</div><br>
+<div class="container">
+  <h1 style="text-align:center">Edit Contact Details</h1>
+    <%= form_for(@contact, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <div class = "row">
+        <div class = "col-md-6" style="margin-left:25%">
+          <div class="form-group">
+            <%= f.label :address, 'Address' %>
+            <%= f.text_field :address, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :day, 'Weekdays' %><br>
+            <%= f.select :day, [ 'Monday-Friday', 'Saturday-Sunday'], :prompt => 'Select days' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :day2, 'Weekends' %><br>
+            <%= f.select :day2, [ 'Monday-Friday', 'Saturday-Sunday'], :prompt => 'Select days' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :time, 'Weekday Hours' %><br>
+            <%= f.select :time, [ '10am-9pm', '10am-10pm'], :prompt => 'Select timing' %>
+          </div>
+            <div class="form-group">
+            <%= f.label :time2, 'Weekend Hours' %><br>
+            <%= f.select :time2, [ '10am-9pm', '10am-10pm'], :prompt => 'Select timing' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :phone, 'Phone' %>
+            <%= f.text_field :phone, class: 'form-control' %>
+          </div>
+      </div>
+    </div>
+    <div style="margin-left: 25%"><%= f.submit "Edit", class: 'btn btn-primary' %></div>
+  <% end %>
+</div>

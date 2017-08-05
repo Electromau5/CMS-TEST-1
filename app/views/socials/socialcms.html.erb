@@ -1,0 +1,24 @@
+<%= render 'layouts/header' %>
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+			<%= link_to 'Add+', new_social_path, class: 'add-new-text btn btn-primary' %>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+			<%= link_to 'View All', socialcms_path, class: 'view-all-text btn btn-primary' %>
+ 		</div>
+	</div><br>
+	<h2 style="text-align:center">SOCIAL MEDIA LINKS</h2>
+	<div class="container">	
+		<div class="row">
+		<% Social.all.each do |social| %>
+			<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+				<div class="social-cms-image"><%= image_tag(social.image(:thumb)) %></div><br>
+				<div class="social-cms-name"><%= social.name %></div><br>
+				<div class="social-cms-link"><%= link_to social.link, '#{social.link}', target: "_blank" %></div><br>
+				<%= link_to 'EDIT', edit_social_path(social), class: 'social-cms-edit' %>
+				<%= link_to 'DELETE', social, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'social-cms-edit' %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+

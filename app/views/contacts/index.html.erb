@@ -1,0 +1,62 @@
+<%= render 'layouts/header' %><br><br><br>
+<div class="container" style="border: 1px solid #000">
+<div class="contact-cms-header">
+	<h1>CONTACT DETAILS</h1>
+</div>
+<% @contact.all.each do |contact| %>
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="contact-cms-sub-header">
+			<h3>Address</h3>
+		</div>
+		<div class="contact-cms">
+			<%= contact.address %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="contact-cms-sub-header">
+			<h3>Weekdays</h3>
+		</div>
+		<div class="contact-cms">
+			<%= contact.day %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="contact-cms-sub-header">
+			<h3>Weekday Timings</h3>
+		</div>
+		<div class="contact-cms">
+			<%= contact.time %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="contact-cms-sub-header">
+			<h3>Weekends</h3>
+		</div>
+		<div class="contact-cms">
+			<%= contact.day2 %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="contact-cms-sub-header">
+			<h3>Weekend Timings</h3>
+		</div>
+		<div class="contact-cms">
+			<%= contact.time2 %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="contact-cms-sub-header">
+			<h3>Phone</h3>
+		</div>
+		<div class="contact-cms">
+			<%= contact.phone %>
+		</div>
+	</div>		
+</div><br>
+<div class="contact-cms-edit-delete">
+	<%= link_to 'EDIT', edit_contact_path(contact), class: 'contact-cms-edit' %>
+	<%= link_to 'DELETE', contact, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'contact-cms-edit' %>
+</div>
+<% end %><br>
+</div>

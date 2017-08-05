@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FnB Prototype-1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="master-container"></div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" style="margin-left:20%">
+       <li class="hover"><div class="hover-box"></div><%= link_to 'HOME', root_path, class: 'header' %></li>
+       <li class="hover"><div class="hover-box"></div><%= link_to "WHAT'S NEW", '#whatsnew', class: 'header' %></li>
+       <li class="hover"><div class="hover-box"></div><%= link_to 'HOW YOUR FOOD IS PREPPED', '#kitchen', class: 'header' %></li>
+       <li class="hover"><div class="hover-box"></div><%= link_to 'CATERING MENU', menus_path, class: 'header' %></li>
+       <li class="hover"><div class="hover-box"></div><%= link_to 'LOCATION & CONTACT', '#contact', class: 'header' %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="master-container-2"></div>
+<div class="banner-whats-new">
+  <h1 id="kitchen">INSIDE OUR KITCHEN</h1>
+</div><br>
+<div class="container">  
+    <div class="row">
+    <% Kitchen.all.each do |kitchen| %>
+      <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+        <div class="kitchen-cms-image"><%= image_tag(kitchen.image(:medium)) %></div><br>
+        <div class="kitchen-cms-title" style="color: #215A9E"><%= kitchen.description %></div><br>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+<div class="banner-whats-new">
+  <h1 id="whatsnew">WHAT'S NEW</h1>
+</div><br>
+<div class="container">
+  <div class="row">
+    <% Group.all.each do |group| %>
+      <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12" >
+            <div class="group-landing-title"><%= group.title %></div>
+            <div class="group-landing-description"><%= group.description %></div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+            <div class="group-landing-image"><%= image_tag(group.image(:large)) %></div>
+      </div>
+    <% end %>
+  </div>
+</div><br>
+<div class="banner-whats-new">
+  <h1 id="whatsnew">SOME OF OUR RECENT WORK</h1>
+</div><br>
+<div class="container-fluid">
+<div id="pins" class="transitions-enabled">
+  <% Photo.all.each do |photo| %>
+    <div class="box">
+        <%= image_tag photo.image(:medium) %>
+    </div>
+    <% end %>
+</div>
+</div>
+  <div class="banner-location-contact">
+  <h1 id="contact">LOCATION & CONTACT</h1>
+    <% Contact.all.each do |contact| %>
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+        <div class="contacts-landing-address">
+          <%= contact.address %>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+        <div class="contacts-landing-phone">
+            WANT US TO CATER YOUR NEXT EVENT? <br>
+            CONTACT US ONLINE OR BY PHONE.<br>
+            <%= contact.phone %><br>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+         <div class="contacts-landing-day-time">
+            HOURS: <%= contact.day %>. <%= contact.time %><br>
+            <%= contact.day2 %>. <%= contact.time2 %>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+        <div>
+          <% Social.all.each do |social| %>
+          <%= link_to image_tag(social.image(:thumb)), '#{social.link}' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+        <div class="container">
+          <%= form_for(@customer, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+            <div class = "row">
+              <div class = "col-md-6" style="margin-left:10%">
+                <div class="form-group">
+               
+                  <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
+                </div>
+                  <div class="form-group">
+                  <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
+                </div>
+                  <div class="form-group">
+                 
+                  <%= f.text_field :phone, placeholder: 'Phone', class: 'form-control' %>
+                </div>
+                  <div class="form-group">
+             
+                  <%= f.text_field :eventdate, placeholder: 'Event Date', class: 'form-control' %>
+                </div>
+                  <div class="form-group">
+              
+                  <%= f.text_area :message,  placeholder: 'Message',class: 'form-control' %>
+                </div>
+             </div>
+    </div>
+    <div><%= f.submit "Send", class: 'btn btn-primary' %></div>
+  <% end %>
+</div>
+
+      </div>
+    <% end %>
+</div>
+</body>
+</html>
+

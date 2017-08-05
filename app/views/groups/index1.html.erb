@@ -1,0 +1,24 @@
+<%= render 'layouts/header' %>
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+			<%= link_to 'Add+', new_group_path, class: 'add-new-text btn btn-primary' %>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+			<%= link_to 'View All', groupscms_path, class: 'view-all-text btn btn-primary' %>
+ 		</div>
+	</div><br>
+	<h2 style="text-align:center">WHAT'S NEW</h2>
+	<div class="container">	
+		<div class="row">
+		<% Group.all.each do |group| %>
+			<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+				<div class="group-cms-image"><%= image_tag(group.image(:medium)) %></div><br>
+				<div class="group-cms-title"><%= group.title %></div><br>
+				<div class="group-cms-description"><%= group.description %></div><br>
+				<%= link_to 'EDIT', edit_group_path(group), class: 'group-cms-edit' %>
+				<%= link_to 'DELETE', group, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'group-cms-edit' %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+

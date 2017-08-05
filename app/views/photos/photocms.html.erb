@@ -1,0 +1,23 @@
+<%= render 'layouts/header' %>
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+			<%= link_to 'Add+', new_photo_path, class: 'add-new-text btn btn-primary' %>
+		</div>
+		<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+			<%= link_to 'View All', photocms_path, class: 'view-all-text btn btn-primary' %>
+ 		</div>
+	</div><br>
+	<h2 style="text-align:center">GALLERY</h2>
+	<div class="container">	
+		<div class="row">
+		<% Photo.all.each do |photo| %>
+			<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+				<div class="photo-cms-title"><%= photo.name %></div><br>
+				<div class="photo-cms-image"><%= image_tag(photo.image(:medium)) %></div><br>
+				<%= link_to 'EDIT', edit_photo_path(photo), class: 'photo-cms-edit' %>
+				<%= link_to 'DELETE', photo, method: :delete,  data: { confirm: 'Are you sure?' }, class: 'photo-cms-edit' %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+

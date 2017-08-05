@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FnB Prototype-1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="master-container"></div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get menued for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" style="margin-left:20%">
+       <li class="hover"><div class="hover-box"></div><%= link_to 'HOME', root_path, class: 'header' %></li>
+       <li class="hover"><div class="hover-box"></div><%= link_to "WHAT'S NEW", '#whatsnew', class: 'header' %></li>
+       <li class="hover"><div class="hover-box"></div><%= link_to 'HOW YOUR FOOD IS PREPPED', '#', class: 'header' %></li>
+       <li class="hover"><div class="hover-box"></div><%= link_to 'CATERING MENU', menus_path, class: 'header' %></li>
+       <li class="hover"><div class="hover-box"></div><%= link_to 'LOCATION & CONTACT', '#contact', class: 'header' %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="jumbotron" style="background-color: #3275c1">
+  <h2 style="text-align:center; color: #fff">CATERING MENU</h2>
+	 <div class="container">	
+	   <div class="row">
+      <h2 style="text-align:center; color: #E62C00; font-family: 'Raleway-Medium', sans-serif">Entrees</h2>
+		  <% Menu.all.where(:section => 'Entree').each do |menu| %>
+			 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+				  <div class="menu-cms-image"><%= image_tag(menu.image(:medium)) %></div><br>
+				  <div class="menu-cms-title"><%= menu.name %></div><br>
+				  <div class="menu-index-description"><%= menu.description %></div><br>
+			</div>
+		  <% end %>
+		  </div>
+      <div class="row">
+        <h2 style="text-align:center; color: #E62C00; font-family: 'Raleway-Medium', sans-serif">Side Items</h2>
+          <% Menu.all.where(:section => 'Side Item').each do |menu| %>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+              <div class="menu-cms-image"><%= image_tag(menu.image(:medium)) %></div><br>
+              <div class="menu-cms-title"><%= menu.name %></div><br>
+              <div class="menu-index-description"><%= menu.description %></div><br>
+            </div>
+          <% end %>
+      </div>
+      <div class="row">
+        <h2 style="text-align:center; color: #E62C00; font-family: 'Raleway-Medium', sans-serif">Appetizer</h2>
+          <% Menu.all.where(:section => 'Appetizer').each do |menu| %>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+              <div class="menu-cms-image"><%= image_tag(menu.image(:medium)) %></div><br>
+              <div class="menu-cms-title"><%= menu.name %></div><br>
+              <div class="menu-index-description"><%= menu.description %></div><br>
+            </div>
+          <% end %>
+      </div>
+      <div class="row">
+        <h2 style="text-align:center; color: #E62C00; font-family: 'Raleway-Medium', sans-serif">Dessert</h2>
+          <% Menu.all.where(:section => 'Dessert').each do |menu| %>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" ><br>
+              <div class="menu-cms-image"><%= image_tag(menu.image(:medium)) %></div><br>
+              <div class="menu-cms-title"><%= menu.name %></div><br>
+              <div class="menu-index-description"><%= menu.description %></div><br>
+            </div>
+          <% end %>
+      </div>
+	 </div>
+</body>
+</html>
+

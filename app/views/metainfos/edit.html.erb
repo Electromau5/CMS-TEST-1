@@ -1,0 +1,31 @@
+<%= render 'layouts/header' %>
+<div class="row">
+	<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+		<%= link_to 'Back', metainfos_path, class: 'add-new-text btn btn-primary' %>
+	</div>
+	<div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 view-all-header">
+		<%= link_to 'View All', metainfos_path, class: 'view-all-text btn btn-primary' %>
+ 	</div>
+</div><br>
+<div class="container">
+  <h1 style="text-align:center">Edit Meta Info=</h1>
+    <%= form_for(@metainfo, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+		<div class = "row">
+  			<div class = "col-md-6" style="margin-left:25%">
+  				<div class="form-metainfo">
+    				<%= f.label :title, 'metainfo Name' %>
+    				<%= f.text_field :title, class: 'form-control' %>
+  				</div>
+  			    <div class="form-metainfo">
+    				<%= f.label :description, 'Description' %>
+    				<%= f.text_area :description, class: 'form-control' %>
+  				</div>
+  		    <div class="form-metainfo">
+            <%= f.label :keyword, 'Keywords' %>
+            <%= f.text_field :keyword, class: 'form-control' %>
+          </div>
+    	</div>
+		</div>
+		<div style="margin-left: 25%"><%= f.submit "Edit", class: 'btn btn-primary' %></div>
+	<% end %>
+</div>
